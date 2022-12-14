@@ -4,9 +4,10 @@
 :root {
 	--dark-color: #0c0e12;
 	--green-color: #3ac7a5;
-	--blue-color: #3987e6;
+	--blue-color: #2b4ed7;
 	--dark-light-color: #999;
-	--light-color: #c9c9c9;
+	--gray-color: #c9c9c9;
+	--light-color: #f6f6f6;
 	--white-color: #fff;
 	--border-radius: 5px;
 	--container-width: 1170px;
@@ -21,6 +22,11 @@ body {
 	position: relative;
 }
 
+body {
+	overflow-x: hidden;
+	min-height: 100vh;
+}
+
 a {
 	color: inherit;
 	text-decoration: none;
@@ -28,4 +34,32 @@ a {
 
 * {
 	box-sizing: border-box;
+}
+
+.overflow-hidden {
+	overflow: hidden;
+}
+
+@media screen and (max-width: 1200px) {
+	:root {
+		--container-width: 900px;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	:root {
+		--container-width: 768px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	:root {
+		--container-width: 576px;
+	}
+}
+
+@media screen and (max-width: 576px) {
+	:root {
+		--container-width: 100%;
+	}
 }

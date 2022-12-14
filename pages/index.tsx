@@ -1,11 +1,33 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Brands from '../components/Brands'
+import Search from '../components/Icons/Search'
+import Input from '../components/Input'
 import Navbar from '../components/Navbar'
 import styles from '../styles/Home.module.css'
+import { IBrand } from '../types/IBrand'
+
+const brands: IBrand[] = [
+	{
+		imgSrc:
+			'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/store-card-13-iphone-nav-202209_GEO_US?wid=400&hei=260&fmt=png-alpha&.v=1661027785546',
+		name: 'Apple',
+	},
+	{
+		imgSrc:
+			'https://www.freepnglogos.com/uploads/xiaomi-png/xiaomi-launched-with-snapdragon-ram-14.png',
+		name: 'Xiaomi',
+	},
+	{
+		imgSrc:
+			'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqlOE7xG4ypDARLiiduNOXHgC3v7jIu12H9Q&usqp=CAU',
+		name: 'Samsung',
+	},
+]
 
 export default function Home() {
 	return (
-		<div id={styles.page}>
+		<div id="page">
 			<Head>
 				<title>TechShop - магазин с широким выбором и не высокими ценами</title>
 				<meta
@@ -20,22 +42,35 @@ export default function Home() {
 				<Navbar />
 				<div className={`${styles.container} ${styles.headerContent}`}>
 					<div className={styles.headerContentLeft}>
-						<h2 className={styles.title}>Discover Most Suitable Watches</h2>
+						<h2 className={styles.title}>Techshop</h2>
 						<p className={styles.subtitle}>
-							Find the best, reliable, and cheap smart watches here. We focus on
-							product quality. Here you can find smart watches of almost all
-							brands. So why you are waiting? Just order now!
+							Здесь вы найдете лучшую, надежную и недорогую технику. Мы
+							ориентируемся на качество продукции. У нас вы можете найти технику
+							практически всех брендов. Так почему вы ждете? Просто закажите
+							сейчас!
 						</p>
+						<Input
+							icon={<Search />}
+							type={'text'}
+							placeholder={'Найдите лучший бренд'}
+							buttonText={'Найти'}
+						/>
 					</div>
-					<div className={styles.headerContentRight}></div>
+					<div className={styles.headerContentRight}>
+						<img src="/hero.png" alt="" />
+					</div>
 				</div>
 			</header>
 
-			<main>
-				<h1>MAIN</h1>
+			<main className={styles.main}>
+				<Brands
+					brands={brands}
+					isAllBrands={false}
+					pathOnAllBrands={'/brands'}
+				/>
 			</main>
 
-			<footer>FOOTER</footer>
+			<footer className={styles.footer}>FOOTER</footer>
 		</div>
 	)
 }

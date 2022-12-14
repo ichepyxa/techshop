@@ -8,12 +8,12 @@ export default function Navbar() {
 
 	const toggleBurger = (e: MouseEvent<HTMLElement>) => {
 		if (nav.current?.classList.contains(styles.show)) {
-			document.body.style.overflow = 'visible'
+			document.body.classList.remove('overflow-hidden')
 			e.currentTarget.classList.remove(styles.active)
 			return nav.current.classList.remove(styles.show)
 		}
 
-		document.body.style.overflow = 'hidden'
+		document.body.classList.add('overflow-hidden')
 		e.currentTarget.classList.add(styles.active)
 		nav.current?.classList.add(styles.show)
 	}
